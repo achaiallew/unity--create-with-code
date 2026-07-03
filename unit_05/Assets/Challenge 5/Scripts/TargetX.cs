@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class TargetX : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class TargetX : MonoBehaviour
     private float minValueX = -3.75f; // the x value of the center of the left-most square
     private float minValueY = -3.75f; // the y value of the center of the bottom-most square
     private float spaceBetweenSquares = 2.5f; // the distance between the centers of squares on the game board
-    
+
 
     void Start()
     {
@@ -26,16 +27,16 @@ public class TargetX : MonoBehaviour
 
     }
 
+
     // When target is clicked, destroy it, update score, and generate explosion
-    private void OnMouseEnter()
+    private void OnMouseDown()
     {
-        if (gameManagerX.isGameActive)
-        {
-            Destroy(gameObject);
-            gameManagerX.UpdateScore(pointValue);
-            Explode();
-        }
-               
+        if (!gameManagerX.isGameActive)
+            return;
+
+        Destroy(gameObject);
+        gameManagerX.UpdateScore(pointValue);
+        Explode();
     }
 
     // Generate a random spawn position based on a random index from 0 to 3
@@ -59,6 +60,8 @@ public class TargetX : MonoBehaviour
     // If target that is NOT the bad object collides with sensor, trigger game over
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other);
+        Debug.Log(gameObject);
         Destroy(gameObject);
 
         if (other.gameObject.CompareTag("Sensor") && !gameObject.CompareTag("Bad"))

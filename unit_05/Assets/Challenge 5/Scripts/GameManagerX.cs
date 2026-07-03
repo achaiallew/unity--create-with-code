@@ -4,11 +4,17 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Unity.VisualScripting;
 
 public class GameManagerX : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
+    public TextMeshProUGUI timerText;
+    public TextMeshProUGUI winScreenText;
+    public TextMeshProUGUI finalScoreText;
+    
+
     public GameObject titleScreen;
     public Button restartButton; 
 
@@ -21,16 +27,41 @@ public class GameManagerX : MonoBehaviour
     private float spaceBetweenSquares = 2.5f; 
     private float minValueX = -3.75f; //  x value of the center of the left-most square
     private float minValueY = -3.75f; //  y value of the center of the bottom-most square
+
+    public float timer = 60;
     
     // Start the game, remove title screen, reset score, and adjust spawnRate based on difficulty button clicked
-    public void StartGame()
+    public void StartGame(int adjustRate)
     {
-        spawnRate /= 5;
+        spawnRate /= adjustRate;
         isGameActive = true;
         StartCoroutine(SpawnTarget());
         score = 0;
         UpdateScore(0);
         titleScreen.SetActive(false);
+        timer = 60;
+    }
+
+    private void Update()
+    {
+        if (timer > 0 && isGameActive)
+        {
+            timer -= Time.deltaTime;
+            float seconds = Mathf.FloorToInt(timer % 60);
+            timerText.text = "Time: " + seconds;
+
+        }
+        
+        if (timer < 0)
+        {
+            WinGame();
+        }
+
+        if (score < 0)
+        {
+            GameOver();
+        }
+        
     }
 
     // While game is active spawn a random target
@@ -70,14 +101,21 @@ public class GameManagerX : MonoBehaviour
     public void UpdateScore(int scoreToAdd)
     {
         score += scoreToAdd;
-        scoreText.text = "score";
+        scoreText.text = "Score: " + score;
     }
 
     // Stop game, bring up game over text and restart button
     public void GameOver()
     {
         gameOverText.gameObject.SetActive(true);
-        restartButton.gameObject.SetActive(false);
+        restartButton.gameObject.SetActive(true);
+        isGameActive = false;
+    }
+    public void WinGame()
+    {
+        winScreenText.gameObject.SetActive(true);
+        restartButton.gameObject.SetActive(true);
+        finalScoreText.text = "Final Score: " + score;
         isGameActive = false;
     }
 
