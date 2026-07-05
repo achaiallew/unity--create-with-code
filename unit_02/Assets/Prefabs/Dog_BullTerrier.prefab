@@ -1744,10 +1744,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8234342934627258074}
   - component: {fileID: 5339924634997413800}
-  - component: {fileID: 1512358496712254481}
   - component: {fileID: 3049570798875250446}
   - component: {fileID: -1270706201690277661}
-  - component: {fileID: -1158120049153254925}
+  - component: {fileID: 5351002099168201978}
+  - component: {fileID: -6586994649181426657}
   m_Layer: 0
   m_Name: Dog_BullTerrier
   m_TagString: Untagged
@@ -1829,20 +1829,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1512358496712254481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2520945002947220048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9796568bdedf16045a61e5a57434e040, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DestroyOnExit
-  topBounds: 35
-  lowerBounds: -15
 --- !u!114 &3049570798875250446
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1877,7 +1863,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.09020442, y: 0.23089439, z: 0.2809177}
   m_Center: {x: -0.0015632212, y: 0.10629919, z: 0.031264514}
---- !u!114 &-1158120049153254925
+--- !u!114 &5351002099168201978
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1886,9 +1872,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 2520945002947220048}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5092c792ff388aa4793ccb70b10fac06, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c52ee72091692143869a36cdefe1fd7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DestroyOnCollision
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyOutOfBounds
+--- !u!114 &-6586994649181426657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2520945002947220048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81e62e9a8a22fac478a927ce940e28f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DetectCollisions
 --- !u!1 &2604334385203662847
 GameObject:
   m_ObjectHideFlags: 0

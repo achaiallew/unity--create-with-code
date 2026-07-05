@@ -5681,9 +5681,9 @@ GameObject:
   - component: {fileID: 5220522914846432235}
   - component: {fileID: 8692538231378379681}
   - component: {fileID: 3874123189914847699}
-  - component: {fileID: 1634198628575549110}
   - component: {fileID: -8372035587856346383}
-  - component: {fileID: -527291396239791767}
+  - component: {fileID: 3918187220846233941}
+  - component: {fileID: -2083452153504321621}
   m_Layer: 0
   m_Name: Dog_BullDog
   m_TagString: Untagged
@@ -5778,20 +5778,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FoodShooter
   speed: 5
---- !u!114 &1634198628575549110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8002284530022604071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9796568bdedf16045a61e5a57434e040, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DestroyOnExit
-  topBounds: 35
-  lowerBounds: -15
 --- !u!65 &-8372035587856346383
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5813,7 +5799,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.15875751, y: 0.23297815, z: 0.29174212}
   m_Center: {x: 0.0000030444219, y: 0.092790835, z: 0.025814021}
---- !u!114 &-527291396239791767
+--- !u!114 &3918187220846233941
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5822,9 +5808,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 8002284530022604071}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5092c792ff388aa4793ccb70b10fac06, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c52ee72091692143869a36cdefe1fd7, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DestroyOnCollision
+  m_EditorClassIdentifier: Assembly-CSharp::DestroyOutOfBounds
+--- !u!114 &-2083452153504321621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8002284530022604071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81e62e9a8a22fac478a927ce940e28f7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DetectCollisions
 --- !u!1 &8092748433628703512
 GameObject:
   m_ObjectHideFlags: 0

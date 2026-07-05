@@ -7,7 +7,9 @@ public class PlayerContoller : MonoBehaviour
     public float speed = 10;
     public float turnSpeed = 3;
     public InputAction moveAction;
-    public Vector2 moveInput;
+    [SerializeField] private Vector2 moveInput;
+
+    // const, readonly, static
 
     void Start()
     {
@@ -15,7 +17,7 @@ public class PlayerContoller : MonoBehaviour
         moveAction.Enable();
     }
 
-    void Update()
+    void FixedUpdate()
     {
         // Read Movement Input
         moveInput = moveAction.ReadValue<Vector2>();
