@@ -3,18 +3,18 @@ using UnityEngine.InputSystem;
 
 public class PlayerContoller : MonoBehaviour
 {
-    // Declare Variables
-    public float speed = 10;
-    public float turnSpeed = 3;
-    public InputAction moveAction;
+    // Declare Car Variables
+    public float speed = 20;
+    public float turnSpeed = 30;
+    [SerializeField] private InputAction moveAction;
     [SerializeField] private Vector2 moveInput;
-
-    // const, readonly, static
+    [SerializeField] private InputAction speedUpAction;
 
     void Start()
     {
-        // Enable Movement Actions
+        // Enable Input Actions
         moveAction.Enable();
+        speedUpAction.Enable();
     }
 
     void FixedUpdate()
@@ -24,5 +24,19 @@ public class PlayerContoller : MonoBehaviour
         // Move Player Forward
         transform.Translate(Vector3.forward*Time.deltaTime*speed*moveInput.y);
         transform.Rotate(Vector3.up*Time.deltaTime*turnSpeed*moveInput.x);
+    }
+
+    
+
+    void Update()
+    {
+        if (speedUpAction.IsInProgress())
+        {
+            speed *= 1.5f;
+        }
+        else
+        {
+            speed /= 1.5f;
+        }
     }
 }
