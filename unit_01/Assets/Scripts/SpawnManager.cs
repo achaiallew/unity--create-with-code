@@ -17,7 +17,7 @@ public class SpawnManager : MonoBehaviour
         {
             Instantiate(obstacles[Random.Range(0, obstacles.Count)], obstacleSpawn[i].transform.position, Quaternion.identity);
             alt *= -1;
-            Vector3 carSpawn = new Vector3(alt*xSpawn, 0, obstacleSpawn[i].transform.position.z + 12.5f);
+            Vector3 carSpawn = new Vector3(alt*xSpawn*Random.Range(0.5f, 1.5f), 0, obstacleSpawn[i].transform.position.z + 12.5f);
 
             Instantiate(carTypes[Random.Range(0, carTypes.Count)], carSpawn, new Quaternion(0, 180, 0, 0));
         }

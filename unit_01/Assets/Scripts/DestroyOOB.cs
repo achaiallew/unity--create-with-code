@@ -3,6 +3,8 @@ using UnityEngine;
 public class DestroyOOB : MonoBehaviour
 {
 
+    public GameManager gameManager;
+
     // Update is called once per frame
     void Update()
     {

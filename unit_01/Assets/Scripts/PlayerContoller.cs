@@ -8,35 +8,38 @@ public class PlayerContoller : MonoBehaviour
     public float turnSpeed = 30;
     [SerializeField] private InputAction moveAction;
     [SerializeField] private Vector2 moveInput;
-    [SerializeField] private InputAction speedUpAction;
+
+    public bool activeContols = true;
+    public bool winGame = false;
 
     void Start()
     {
         // Enable Input Actions
         moveAction.Enable();
-        speedUpAction.Enable();
+        activeContols = true;
+        winGame = false;
     }
 
     void FixedUpdate()
     {
         // Read Movement Input
         moveInput = moveAction.ReadValue<Vector2>();
+
         // Move Player Forward
-        transform.Translate(Vector3.forward*Time.deltaTime*speed*moveInput.y);
-        transform.Rotate(Vector3.up*Time.deltaTime*turnSpeed*moveInput.x);
+        if (activeContols != false)
+        {
+            transform.Translate(Vector3.forward*Time.deltaTime*speed*moveInput.y);
+            transform.Rotate(Vector3.up*Time.deltaTime*turnSpeed*moveInput.x);
+        } 
     }
 
-    
-
-    void Update()
+    void OnTriggerEnter(Collider other)
     {
-        if (speedUpAction.IsInProgress())
+        if (other.gameObject.tag =="Finish")
         {
-            speed *= 1.5f;
-        }
-        else
-        {
-            speed /= 1.5f;
+            winGame = true;
         }
     }
+
+
 }

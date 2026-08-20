@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bf129cec9f3f9d4491b784e21a9d1a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::VehicleDrive
-  speed: 5
+  speed: 10
 --- !u!114 &2262324792203827028
 MonoBehaviour:
   m_ObjectHideFlags: 0

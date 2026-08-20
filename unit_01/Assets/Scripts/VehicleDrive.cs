@@ -22,6 +22,7 @@ public class VehicleDrive : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
            gameManager.gameState = false;
+           gameManager.collidedObject = collision.gameObject;
         }
         
     }
