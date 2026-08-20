@@ -40,8 +40,11 @@ public class GameManager : MonoBehaviour
         }
         else if (multiplayer == 1)
         {
+            Debug.Log("Starting multiplayer");
+            Debug.Log("Creating player 1");
+            Debug.Log("Creating player 2");
             playerB.SetActive(true);
-            playerB.SetActive(true);
+            playerBCam.SetActive(true);
             playerA.transform.position = multiplayerSpawn;
             playerACam.rect = new Rect (0f, 0f, 0.5f, 1f);
         }
@@ -138,14 +141,14 @@ public class GameManager : MonoBehaviour
 
     void MultiLoseGame()
     {
-        if (collidedObject.Equals(playerA) && gameStateA)
+        if (collidedObject == playerA && gameStateA)
         {
             screenText.text = "Game Over";
             screenText.alignment = TextAlignmentOptions.Left;
             playerA.GetComponent<PlayerContoller>().activeContols = false;
             gameStateA = false;
 
-        } else if (collidedObject.Equals(playerB) && gameStateB)
+        } else if (collidedObject == playerB && gameStateB)
         {
             screenText.text = "Game Over";
             screenText.alignment = TextAlignmentOptions.Right;

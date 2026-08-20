@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     {
         tutorialPanel.SetActive(false);
         PlayerPrefs.SetInt("multiplayer", 0);
+        PlayerPrefs.Save();
     }
 
     public void PlayGame()
@@ -35,10 +36,13 @@ public class MainMenu : MonoBehaviour
         if (toggle.isOn == true)
         {
             PlayerPrefs.SetInt("multiplayer", 1);
+            PlayerPrefs.Save();
+            Debug.Log("Setting multiplayer " + PlayerPrefs.GetInt("multiplayer"));
         }
         else
         {
             PlayerPrefs.SetInt("multiplayer", 0);
+            PlayerPrefs.Save();
         }
         
     }
